@@ -53,11 +53,11 @@
 
         layer_3 {
             bindings = <
-&trans  &trans         &trans         &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LC(N1)     &none          &none   &none   &none                   &none   &none   &none   &none   &none   &trans
-&trans  &kp LC(PLUS)   &kp LC(MINUS)  &none   &none   &none   &trans  &trans  &none   &none   &none   &none   &none   &trans
-&trans  &kp LC(LA(V))  &kp LG(LS(S))  &none   &none   &none   &trans  &trans  &none   &none   &none   &none   &none   &trans
-&trans  &trans         &trans         &trans  &none   &none   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans         &trans         &trans       &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LC(N1)     &none          &none        &none   &none                   &none   &none   &none   &none   &none   &trans
+&trans  &kp LC(PLUS)   &kp LC(MINUS)  &none        &none   &none   &trans  &trans  &none   &none   &none   &none   &none   &trans
+&trans  &kp LC(LA(V))  &kp LG(LS(S))  &kp LA(TAB)  &none   &none   &trans  &trans  &none   &none   &none   &none   &none   &trans
+&trans  &trans         &trans         &trans       &none   &none   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
