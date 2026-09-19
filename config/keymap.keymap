@@ -31,7 +31,7 @@
 &trans  &trans            &trans              &trans              &trans              &trans                                    &trans              &trans            &trans              &trans           &trans    &trans
 &trans  &kp LC(NUMBER_1)  &none               &kp LG(UP_ARROW)    &none               &kp LC(LA(V))                             &kp PAGE_UP         &none             &kp UP_ARROW        &none            &kp HOME  &trans
 &trans  &kp LC(PLUS)      &kp LG(LEFT_ARROW)  &kp LG(DOWN_ARROW)  &kp LG(DOWN_ARROW)  &kp LA(TAB)    &trans         &trans      &kp PAGE_DOWN       &kp LEFT_ARROW    &kp DOWN_ARROW      &kp RIGHT_ARROW  &kp END   &trans
-&trans  &kp LC(MINUS)     &none               &kp K_SCROLL_DOWN   &kp K_SCROLL_UP     &none          &kp LG(LS(S))  &trans      &kp RC(LEFT_ARROW)  &kp RC(UP_ARROW)  &kp RC(DOWN_ARROW)  &kp RC(RIGHT)    &none     &trans
+&trans  &kp LC(MINUS)     &none               &none               &none               &none          &kp LG(LS(S))  &trans      &kp RC(LEFT_ARROW)  &kp RC(UP_ARROW)  &kp RC(DOWN_ARROW)  &kp RC(RIGHT)    &none     &trans
 &trans  &trans            &trans              &trans              &trans              &trans         &trans         &kp DELETE  &none               &none             &trans              &trans           &trans    &trans
             >;
         };
@@ -78,11 +78,11 @@
 
         layer_6 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB4  &trans    &mkp MB5  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans                  &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans          &msc SCRL_UP    &trans           &trans                  &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans  &trans  &trans  &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &mkp MB4  &trans    &mkp MB5  &trans  &trans
+&trans  &trans  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans
             >;
         };
 
