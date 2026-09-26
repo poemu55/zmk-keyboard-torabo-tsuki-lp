@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/input_transform.h>
 
 / {
     combos {
@@ -24,7 +25,7 @@
                 &none  &mt ESCAPE Q      &kp W     &kp E         &kp R                 &kp T                                          &kp Y        &kp U  &kp I      &kp O           &lt 3 P               &none
                 &none  &mt CAPSLOCK A    &kp S     &kp D         &kp F                 &kp G            &none        &none            &kp H        &lt 7 J  &lt 8 K      &lt 9 L           &lt 0 MINUS           &none
                 &none  &mt LEFT_SHIFT Z  &kp X     &kp C         &kp V                 &kp B            &kp TAB      &kp DEL          &kp N        &kp M  &kp COMMA  &kp DOT         &mt RIGHT_SHIFT FSLH  &none
-                &none  &kp LCTRL         &kp LGUI  &kp LEFT_ALT  &lt 6 LG(LANGUAGE_2)  &lt 2 LG(LANG1)  &lt 1 SPACE  &lt 4 BACKSPACE  &lt 5 ENTER  &none  &none      &kp APOSTROPHE  &kp SEMICOLON         &none
+                &none  &kp LCTRL         &kp LGUI  &kp LEFT_ALT  &lt 6 LANG5  &lt 2 LANG4  &lt 1 SPACE  &lt 4 BACKSPACE  &lt 5 ENTER  &none  &none      &kp APOSTROPHE  &kp SEMICOLON         &none
             >;
         };
 
@@ -236,7 +237,7 @@
 };
 
 &pointing_listener {
-    input-processors = <&zip_xy_scaler 4 5>, <&zip_temp_layer 6 10000>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 4 5>, <&zip_temp_layer 6 10000>;
 
     gesture_layer_7 {
         layers = <7>;
