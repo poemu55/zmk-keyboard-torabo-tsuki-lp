@@ -83,11 +83,11 @@
 
         layer_6 {
             bindings = <
-&trans  &trans  &trans        &trans         &trans          &trans              &trans &trans   &trans   &trans   &trans   &trans
-&trans  &trans  &trans        &msc SCRL_UP  &trans          &trans              &trans &trans   &trans   &trans   &lt 3 P  &trans
-&trans  &trans  &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans              &trans &trans   &trans   &mkp MB1 &mkp MB2 &mkp MB3 &trans &trans
-&trans  &trans  &trans        &trans         &trans          &trans              &trans &trans   &trans   &mkp MB4 &trans   &mkp MB5 &trans &trans
-&trans  &trans  &trans        &to 0          &trans          &trans              &trans &trans   &trans   &trans   &trans   &trans   &trans &trans
+&to 0  &to 0  &to 0           &to 0           &to 0            &to 0                &to 0  &to 0     &to 0     &to 0     &to 0    &to 0
+&to 0  &to 0  &to 0           &msc SCRL_UP    &to 0            &to 0                &to 0  &to 0     &to 0     &to 0     &lt 3 P  &to 0
+&to 0  &to 0  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &to 0  &to 0  &to 0  &to 0  &mkp MB1  &mkp MB2  &mkp MB3  &to 0    &to 0
+&to 0  &to 0  &to 0           &to 0           &to 0            &to 0  &to 0  &to 0  &to 0  &mkp MB4  &to 0     &mkp MB5  &to 0    &to 0
+&to 0  &to 0  &to 0           &to 0           &to 0            &to 0  &to 0  &to 0  &to 0  &to 0     &to 0     &to 0     &to 0    &to 0
             >;
         };
 
@@ -243,7 +243,7 @@
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_xy_scaler 4 5>,
-        <&zip_temp_layer 6 1000>;
+        <&zip_temp_layer 6 10000>;
 
     gesture_layer_7 {
         layers = <7>;
