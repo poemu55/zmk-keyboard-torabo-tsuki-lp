@@ -1,4 +1,4 @@
-#include <input/processors.dtsi>
+p#include <input/processors.dtsi>
 #include <mouse-gesture.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
@@ -15,11 +15,10 @@
             #binding-cells = <0>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&macro_tap &kp LANG2>,
-                       <&macro_press &mo 2>,
+            /* Keep the IME active while Layer 2 is held, so numbers can be converted. */
+            bindings = <&macro_press &mo 2>,
                        <&macro_pause_for_release>,
-                       <&macro_release &mo 2>,
-                       <&macro_tap &kp LANG1>;
+                       <&macro_release &mo 2>;
         };
 
         zoom_ctrl: zoom_ctrl {
@@ -88,9 +87,9 @@
         layer_2 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                             &trans        &trans        &trans        &trans        &trans        &trans
-&trans  &none   &kp F7  &kp F8  &kp F9  &kp F12                            &kp COMMA     &kp KP_N7  &kp KP_N8  &kp KP_N9        &kp PLUS      &trans
-&trans  &none   &kp F4  &kp F5  &kp F6  &kp F11  &trans        &trans      &kp PERIOD    &kp KP_N4  &kp KP_N5        &kp KP_N6  &kp MINUS     &trans
-&trans  &none   &kp F1  &kp F2  &kp F3  &kp F10  &kp CAPSLOCK  &kp SQT     &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp ASTERISK  &trans
+&trans  &none   &kp F7  &kp F8  &kp F9  &kp F12                            &kp COMMA     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9        &kp PLUS      &trans
+&trans  &none   &kp F4  &kp F5  &kp F6  &kp F11  &trans        &trans      &kp PERIOD    &kp NUMBER_4  &kp NUMBER_5        &kp NUMBER_6  &kp MINUS     &trans
+&trans  &none   &kp F1  &kp F2  &kp F3  &kp F10  &kp CAPSLOCK  &kp SQT     &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ASTERISK  &trans
 &trans  &none   &none   &trans  &trans  &trans   &trans        &kp DELETE  &trans        &trans        &trans        &trans        &kp SLASH     &trans
             >;
         };
@@ -326,6 +325,7 @@
         layers = <10>;
         input-processors =
             <&zip_xy_to_scroll_mapper>,
+            <&zip_scroll_scaler 1 2>,
             <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>;
 
         process-next;
