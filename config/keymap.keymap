@@ -1,4 +1,4 @@
-p#include <input/processors.dtsi>
+#include <input/processors.dtsi>
 #include <mouse-gesture.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
@@ -41,6 +41,14 @@ p#include <input/processors.dtsi>
             bindings = <&num_layer>, <&kp>;
         };
 
+        lang1_lt: lang1_lt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp LANG1>, <&mo 2>;
+        };
+
         zoom_ctrl_lt: zoom_ctrl_lt {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -70,7 +78,7 @@ p#include <input/processors.dtsi>
 &none  &kp Q             &kp W     &kp E         &kp R               &kp T                                             &kp Y        &kp U    &kp I      &kp O           &lt 3 P               &none
 &none  &kp A             &kp S     &kp D         &kp F               &kp G               &none        &none            &kp H        &lt 7 J  &lt 8 K    &lt 9 L         &lt 0 MINUS           &none
 &none  &mt LEFT_SHIFT Z  &kp X     &kp C         &kp V               &kp B               &kp TAB      &kp ESCAPE       &kp N        &kp M    &kp COMMA  &kp DOT         &mt RIGHT_SHIFT FSLH  &none
-&none  &zoom_ctrl_lt 0 LCTRL  &kp LGUI  &kp LEFT_ALT  &lt 6 LS(CAPSLOCK)  &num_lt 0 LC(CAPSLOCK)  &lt 1 SPACE  &lt 4 BACKSPACE  &lt 5 ENTER  &none    &none      &kp APOSTROPHE  &kp SEMICOLON         &none
+&none  &zoom_ctrl_lt 0 LCTRL  &kp LGUI  &kp LEFT_ALT  &lt 3 LANG2  &lang1_lt  &lt 1 SPACE  &lt 4 BACKSPACE  &lt 5 ENTER  &none    &none      &kp APOSTROPHE  &kp SEMICOLON         &none
             >;
         };
 
@@ -295,7 +303,7 @@ p#include <input/processors.dtsi>
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_xy_scaler 4 5>,
-        <&zip_temp_layer 6 1000>;
+        <&zip_temp_layer 6 5000>;
 
     gesture_layer_7 {
         layers = <7>;
