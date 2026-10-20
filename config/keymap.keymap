@@ -238,15 +238,6 @@
 };
 
 /*
- * レイヤー6の一時レイヤー解除を除外するキー位置
- * 22=P、33-35=MB1-MB3、47=MB4、49=MB5
- * スクロール用キーの位置は除外しない
- */
-&zip_temp_layer {
-    excluded-positions = <22 33 34 35 47 49>;
-};
-
-/*
  * マウスジェスチャー
  *
  * Layer 7:
@@ -280,7 +271,7 @@
         gesture-cooldown-ms = <120>;
 
         clipboard_history {
-            pattern = <GESTURE_UP>;
+            pattern = <GESTURE_DOWN>;
             bindings = <&kp LG(V)>;
         };
 
@@ -290,7 +281,7 @@
         };
 
         cut {
-            pattern = <GESTURE_DOWN>;
+            pattern = <GESTURE_UP>;
             bindings = <&kp LC(X)>;
         };
 
