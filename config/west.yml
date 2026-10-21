@@ -6,8 +6,6 @@ manifest:
       url-base: https://github.com/sekigon-gonnoc
     - name: kot149
       url-base: https://github.com/kot149
-    - name: yamaryu211
-      url-base: https://github.com/yamaryu211
 
   projects:
     - name: zmk
@@ -42,11 +40,6 @@ manifest:
     - name: zmk-mouse-gesture
       remote: kot149
       revision: v1
-
-    # 追加：除外キー対応のオートマウス
-    - name: zmk-input-processor-temp-layer-threshold
-      remote: yamaryu211
-      revision: main
 
   self:
     path: config
