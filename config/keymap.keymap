@@ -82,10 +82,9 @@
         compatible = "zmk,combos";
         tab_combo {
             bindings = <&kp TAB>;
-            key-positions = <12 13>;
-            timeout-ms = <100>;
-            layers = <0>;
+            key-positions = <27 28>;
         };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -208,7 +207,9 @@
             >;
         };
     };
+};
 
+/ {
     zip_mouse_gesture_18: zip_mouse_gesture_18 {
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
