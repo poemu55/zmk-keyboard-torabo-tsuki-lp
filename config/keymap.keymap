@@ -21,10 +21,10 @@
     zip_aml: zip_aml {
         compatible = "zmk,input-processor-temp-layer-threshold";
         #input-processor-cells = <2>;
-        threshold = <5>;
+        threshold = <1>;
         excluded-positions = <15 26 27 28 33 34 35 47 49>;
-        require-prior-idle-ms = <150>;
-        reset-timeout-ms = <200>;
+        require-prior-idle-ms = <0>;
+        reset-timeout-ms = <1000>;
     };
 
     macros {
