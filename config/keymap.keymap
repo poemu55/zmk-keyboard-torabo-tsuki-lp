@@ -208,9 +208,7 @@
             >;
         };
     };
-};
 
-/ {
     zip_mouse_gesture_18: zip_mouse_gesture_18 {
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
