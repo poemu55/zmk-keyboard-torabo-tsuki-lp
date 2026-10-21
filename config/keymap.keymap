@@ -106,10 +106,11 @@
     keymap {
         compatible = "zmk,keymap";
 
+        /* 【テスト用】反映確認のため Q を 1 に変更。確認後は &kp Q に戻す */
         layer_0 {
             bindings = <
 &none  &none             &none     &none         &none               &none                                             &none        &none    &none      &none           &none                 &none
-&none  &kp Q             &kp W     &kp E         &kp R               &kp T                                             &kp Y        &gesture_lt 11 U  &kp I      &gesture_lt 12 O           &lt 3 P               &none
+&none  &kp NUMBER_1      &kp W     &kp E         &kp R               &kp T                                             &kp Y        &gesture_lt 11 U  &kp I      &gesture_lt 12 O           &lt 3 P               &none
 &none  &kp A             &kp S     &kp D         &kp F               &kp G               &none        &none            &kp H        &lt 7 J  &lt 8 K    &lt 9 L         &lt 0 MINUS           &none
 &none  &z_mt LEFT_SHIFT Z  &kp X     &kp C         &kp V               &kp B               &kp TAB      &kp ESCAPE       &kp N        &kp M    &kp COMMA  &kp DOT         &mt RIGHT_SHIFT FSLH  &none
 &none  &zoom_ctrl_lt 0 LCTRL  &kp LGUI  &kp LEFT_ALT  &lt 6 LS(CAPSLOCK)  &num_lt 0 LC(CAPSLOCK)  &lt 1 SPACE  &lt 4 BACKSPACE  &lt 5 ENTER  &none    &none      &kp APOSTROPHE  &kp SEMICOLON         &none
@@ -239,28 +240,6 @@
     };
 };
 
-/*
- * マウスジェスチャー
- *
- * Layer 7:
- *   ← Ctrl+Shift+Tab
- *   → Ctrl+Tab
- *   ↑ Ctrl+T
- *   ↓ Ctrl+W
- *
- * Layer 8:
- *   ← GUI+Ctrl+←
- *   → GUI+Ctrl+→
- *   ↑ GUI+Tab
- *   ↓ GUI+Ctrl+Shift+→
- *
- * Layer 9:
- *   ← ←
- *   → GUI+T
- *   ↑ Ctrl+L
- *   ↓ GUI+S
- */
-
 / {
     zip_mouse_gesture_18: zip_mouse_gesture_18 {
         compatible = "zmk,input-processor-mouse-gesture";
@@ -388,10 +367,6 @@
     };
 };
 
-/*
- * Layer 7 のジェスチャー
- */
-
 &zip_mouse_gesture {
     enable-eager-mode;
     suppress-movement;
@@ -423,7 +398,6 @@
 
 /*
  * オートマウスレイヤー中もスクロールキーとMB1～MB5でLayer 6を解除しない。
- * 物理キー位置は0始まり。その他のキー入力ではLayer 6を解除する。
  * 15=SCRL_UP 26=SCRL_LEFT 27=SCRL_DOWN 28=SCRL_RIGHT
  * 33=MB1 34=MB2 35=MB3 47=MB4 49=MB5
  */
@@ -435,8 +409,8 @@
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_xy_scaler 4 5>,
-        /* オートマウス：Layer 6 を 10秒（10000ms）保持 */
-        <&zip_temp_layer 6 10000>;
+        /* 【テスト用】Layer 6 を 30秒（30000ms）保持 */
+        <&zip_temp_layer 6 30000>;
 
     gesture_layer_7 {
         layers = <7>;
@@ -468,7 +442,6 @@
         input-processors =
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>;
-
         process-next;
     };
 
@@ -478,7 +451,6 @@
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_scaler 1 2>,
             <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>;
-
         process-next;
     };
 };
