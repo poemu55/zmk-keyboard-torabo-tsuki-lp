@@ -238,15 +238,6 @@
 };
 
 /*
- * レイヤー6の一時レイヤー解除を除外するキー位置
- * 22=P、33-35=MB1-MB3、47=MB4、49=MB5
- * スクロール用キーの位置は除外しない
- */
-&zip_temp_layer {
-    excluded-positions = <22 33 34 35 47 49>;
-};
-
-/*
  * マウスジェスチャー
  *
  * Layer 7:
@@ -426,6 +417,14 @@
         pattern = <GESTURE_UP>;
         bindings = <&kp LC(W)>;
     };
+};
+
+/*
+ * オートマウスレイヤー中もスクロールキーとMB1～MB5でLayer 6を解除しない。
+ * 物理キー位置は0始まり。その他のキー入力ではLayer 6を解除する。
+ */
+&zip_temp_layer {
+    excluded-positions = <15 26 27 28 33 34 35 47 49>;
 };
 
 &pointing_listener {
