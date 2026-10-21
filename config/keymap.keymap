@@ -271,7 +271,7 @@
         gesture-cooldown-ms = <120>;
 
         clipboard_history {
-            pattern = <GESTURE_DOWN>;
+            pattern = <GESTURE_UP>;
             bindings = <&kp LG(V)>;
         };
 
@@ -281,7 +281,7 @@
         };
 
         cut {
-            pattern = <GESTURE_UP>;
+            pattern = <GESTURE_DOWN>;
             bindings = <&kp LC(X)>;
         };
 
@@ -417,6 +417,15 @@
         pattern = <GESTURE_UP>;
         bindings = <&kp LC(W)>;
     };
+};
+
+/*
+ * Layer 6 temporary mouse layer:
+ * Keep the layer active for mouse/scroll keys, but deactivate it on other keys.
+ * Positions are zero-based physical key positions for Torabo-tsuki LP XS.
+ */
+&zip_temp_layer {
+    excluded-positions = <15 22 26 27 28 33 34 35 47 49>;
 };
 
 &pointing_listener {
