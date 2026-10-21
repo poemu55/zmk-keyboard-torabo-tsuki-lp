@@ -238,6 +238,15 @@
 };
 
 /*
+ * レイヤー6の一時レイヤー解除を除外するキー位置
+ * 22=P、33-35=MB1-MB3、47=MB4、49=MB5
+ * スクロール用キーの位置は除外しない
+ */
+&zip_temp_layer {
+    excluded-positions = <22 33 34 35 47 49>;
+};
+
+/*
  * マウスジェスチャー
  *
  * Layer 7:
@@ -417,15 +426,6 @@
         pattern = <GESTURE_UP>;
         bindings = <&kp LC(W)>;
     };
-};
-
-/*
- * Layer 6 temporary mouse layer:
- * Keep the layer active for mouse/scroll keys, but deactivate it on other keys.
- * Positions are zero-based physical key positions for Torabo-tsuki LP XS.
- */
-&zip_temp_layer {
-    excluded-positions = <15 22 26 27 28 33 34 35 47 49>;
 };
 
 &pointing_listener {
