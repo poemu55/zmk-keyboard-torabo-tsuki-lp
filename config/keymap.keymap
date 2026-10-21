@@ -54,7 +54,6 @@
     };
 
     behaviors {
-        /* Zキー専用：短押しを優先して日本語入力時の誤判定を減らす */
         z_mt: z_mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -81,7 +80,6 @@
             bindings = <&zoom_ctrl>, <&kp>;
         };
 
-        /* U/Oは短押しで文字、長押し中はマウスジェスチャーレイヤー */
         gesture_lt: gesture_lt {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -95,8 +93,6 @@
 
     combos {
         compatible = "zmk,combos";
-
-        /* 既存のTABキーは維持し、D+F同時押しでもTABを出力 */
         tab_combo {
             bindings = <&kp TAB>;
             key-positions = <27 28>;
@@ -106,11 +102,11 @@
     keymap {
         compatible = "zmk,keymap";
 
-        /* 【テスト用】反映確認のため Q を 1 に変更。確認後は &kp Q に戻す */
+        /* 【診断用】Qの位置を &mo 6 に変更（押している間だけLayer 6）。確認後は &kp Q に戻す */
         layer_0 {
             bindings = <
 &none  &none             &none     &none         &none               &none                                             &none        &none    &none      &none           &none                 &none
-&none  &kp NUMBER_1      &kp W     &kp E         &kp R               &kp T                                             &kp Y        &gesture_lt 11 U  &kp I      &gesture_lt 12 O           &lt 3 P               &none
+&none  &mo 6             &kp W     &kp E         &kp R               &kp T                                             &kp Y        &gesture_lt 11 U  &kp I      &gesture_lt 12 O           &lt 3 P               &none
 &none  &kp A             &kp S     &kp D         &kp F               &kp G               &none        &none            &kp H        &lt 7 J  &lt 8 K    &lt 9 L         &lt 0 MINUS           &none
 &none  &z_mt LEFT_SHIFT Z  &kp X     &kp C         &kp V               &kp B               &kp TAB      &kp ESCAPE       &kp N        &kp M    &kp COMMA  &kp DOT         &mt RIGHT_SHIFT FSLH  &none
 &none  &zoom_ctrl_lt 0 LCTRL  &kp LGUI  &kp LEFT_ALT  &lt 6 LS(CAPSLOCK)  &num_lt 0 LC(CAPSLOCK)  &lt 1 SPACE  &lt 4 BACKSPACE  &lt 5 ENTER  &none    &none      &kp APOSTROPHE  &kp SEMICOLON         &none
@@ -177,7 +173,6 @@
             >;
         };
 
-        /* Layer 7〜12：5段目が不足していたため &trans を補完（14キーにそろえた） */
         layer_7 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -250,29 +245,12 @@
         movement-threshold = <20>;
         idle-timeout-ms = <180>;
         gesture-cooldown-ms = <120>;
-
-        clipboard_history {
-            pattern = <GESTURE_UP>;
-            bindings = <&kp LG(V)>;
-        };
-
-        paste {
-            pattern = <GESTURE_LEFT>;
-            bindings = <&kp LC(V)>;
-        };
-
-        cut {
-            pattern = <GESTURE_DOWN>;
-            bindings = <&kp LC(X)>;
-        };
-
-        copy {
-            pattern = <GESTURE_RIGHT>;
-            bindings = <&kp LC(C)>;
-        };
+        clipboard_history { pattern = <GESTURE_UP>;    bindings = <&kp LG(V)>; };
+        paste             { pattern = <GESTURE_LEFT>;  bindings = <&kp LC(V)>; };
+        cut               { pattern = <GESTURE_DOWN>;  bindings = <&kp LC(X)>; };
+        copy              { pattern = <GESTURE_RIGHT>; bindings = <&kp LC(C)>; };
     };
 
-    /* Uキー長押し + ボール方向で Windows スナップ操作 */
     zip_mouse_gesture_20: zip_mouse_gesture_20 {
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
@@ -282,29 +260,12 @@
         movement-threshold = <20>;
         idle-timeout-ms = <180>;
         gesture-cooldown-ms = <120>;
-
-        snap_up {
-            pattern = <GESTURE_DOWN>;
-            bindings = <&kp LG(UP)>;
-        };
-
-        snap_right {
-            pattern = <GESTURE_LEFT>;
-            bindings = <&kp LG(RIGHT)>;
-        };
-
-        snap_down {
-            pattern = <GESTURE_UP>;
-            bindings = <&kp LG(DOWN)>;
-        };
-
-        snap_left {
-            pattern = <GESTURE_RIGHT>;
-            bindings = <&kp LG(LEFT)>;
-        };
+        snap_up    { pattern = <GESTURE_DOWN>;  bindings = <&kp LG(UP)>; };
+        snap_right { pattern = <GESTURE_LEFT>;  bindings = <&kp LG(RIGHT)>; };
+        snap_down  { pattern = <GESTURE_UP>;    bindings = <&kp LG(DOWN)>; };
+        snap_left  { pattern = <GESTURE_RIGHT>; bindings = <&kp LG(LEFT)>; };
     };
 
-    /* Oキー長押し + ボール方向でショートカット */
     zip_mouse_gesture_21: zip_mouse_gesture_21 {
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
@@ -314,26 +275,10 @@
         movement-threshold = <20>;
         idle-timeout-ms = <180>;
         gesture-cooldown-ms = <120>;
-
-        print {
-            pattern = <GESTURE_DOWN>;
-            bindings = <&kp LC(P)>;
-        };
-
-        screenshot {
-            pattern = <GESTURE_LEFT>;
-            bindings = <&kp LG(LS(S))>;
-        };
-
-        show_desktop {
-            pattern = <GESTURE_UP>;
-            bindings = <&kp LG(D)>;
-        };
-
-        copilot_taskbar_slot_1 {
-            pattern = <GESTURE_RIGHT>;
-            bindings = <&kp LG(NUMBER_1)>;
-        };
+        print                  { pattern = <GESTURE_DOWN>;  bindings = <&kp LC(P)>; };
+        screenshot             { pattern = <GESTURE_LEFT>;  bindings = <&kp LG(LS(S))>; };
+        show_desktop           { pattern = <GESTURE_UP>;    bindings = <&kp LG(D)>; };
+        copilot_taskbar_slot_1 { pattern = <GESTURE_RIGHT>; bindings = <&kp LG(NUMBER_1)>; };
     };
 
     zip_mouse_gesture_19: zip_mouse_gesture_19 {
@@ -344,26 +289,10 @@
         movement-threshold = <6>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
-
-        taskbar_prev {
-            pattern = <GESTURE_LEFT>;
-            bindings = <&kp LEFT>;
-        };
-
-        taskbar_next {
-            pattern = <GESTURE_RIGHT>;
-            bindings = <&kp LG(T)>;
-        };
-
-        focus_url {
-            pattern = <GESTURE_UP>;
-            bindings = <&kp LC(L)>;
-        };
-
-        vdesk_send_next {
-            pattern = <GESTURE_DOWN>;
-            bindings = <&kp LG(S)>;
-        };
+        taskbar_prev    { pattern = <GESTURE_LEFT>;  bindings = <&kp LEFT>; };
+        taskbar_next    { pattern = <GESTURE_RIGHT>; bindings = <&kp LG(T)>; };
+        focus_url       { pattern = <GESTURE_UP>;    bindings = <&kp LC(L)>; };
+        vdesk_send_next { pattern = <GESTURE_DOWN>;  bindings = <&kp LG(S)>; };
     };
 };
 
@@ -374,33 +303,13 @@
     movement-threshold = <20>;
     idle-timeout-ms = <180>;
     gesture-cooldown-ms = <120>;
-
-    prev_tab {
-        pattern = <GESTURE_RIGHT>;
-        bindings = <&kp LC(LS(TAB))>;
-    };
-
-    next_tab {
-        pattern = <GESTURE_LEFT>;
-        bindings = <&kp LC(TAB)>;
-    };
-
-    create_tab {
-        pattern = <GESTURE_DOWN>;
-        bindings = <&kp LC(T)>;
-    };
-
-    close_tab {
-        pattern = <GESTURE_UP>;
-        bindings = <&kp LC(W)>;
-    };
+    prev_tab   { pattern = <GESTURE_RIGHT>; bindings = <&kp LC(LS(TAB))>; };
+    next_tab   { pattern = <GESTURE_LEFT>;  bindings = <&kp LC(TAB)>; };
+    create_tab { pattern = <GESTURE_DOWN>;  bindings = <&kp LC(T)>; };
+    close_tab  { pattern = <GESTURE_UP>;    bindings = <&kp LC(W)>; };
 };
 
-/*
- * オートマウスレイヤー中もスクロールキーとMB1～MB5でLayer 6を解除しない。
- * 15=SCRL_UP 26=SCRL_LEFT 27=SCRL_DOWN 28=SCRL_RIGHT
- * 33=MB1 34=MB2 35=MB3 47=MB4 49=MB5
- */
+/* 15=SCRL_UP 26=SCRL_LEFT 27=SCRL_DOWN 28=SCRL_RIGHT 33=MB1 34=MB2 35=MB3 47=MB4 49=MB5 */
 &zip_temp_layer {
     excluded-positions = <15 26 27 28 33 34 35 47 49>;
 };
@@ -409,48 +318,23 @@
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_xy_scaler 4 5>,
-        /* 【テスト用】Layer 6 を 30秒（30000ms）保持 */
         <&zip_temp_layer 6 30000>;
 
-    gesture_layer_7 {
-        layers = <7>;
-        input-processors = <&zip_mouse_gesture>;
-    };
-
-    gesture_layer_8 {
-        layers = <8>;
-        input-processors = <&zip_mouse_gesture_18>;
-    };
-
-    gesture_layer_9 {
-        layers = <9>;
-        input-processors = <&zip_mouse_gesture_19>;
-    };
-
-    gesture_layer_11 {
-        layers = <11>;
-        input-processors = <&zip_mouse_gesture_20>;
-    };
-
-    gesture_layer_12 {
-        layers = <12>;
-        input-processors = <&zip_mouse_gesture_21>;
-    };
+    gesture_layer_7  { layers = <7>;  input-processors = <&zip_mouse_gesture>; };
+    gesture_layer_8  { layers = <8>;  input-processors = <&zip_mouse_gesture_18>; };
+    gesture_layer_9  { layers = <9>;  input-processors = <&zip_mouse_gesture_19>; };
+    gesture_layer_11 { layers = <11>; input-processors = <&zip_mouse_gesture_20>; };
+    gesture_layer_12 { layers = <12>; input-processors = <&zip_mouse_gesture_21>; };
 
     scroller {
         layers = <3>;
-        input-processors =
-            <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>;
+        input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>;
         process-next;
     };
 
     zoom_scroller {
         layers = <10>;
-        input-processors =
-            <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 1 2>,
-            <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>;
+        input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 2>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>;
         process-next;
     };
 };
