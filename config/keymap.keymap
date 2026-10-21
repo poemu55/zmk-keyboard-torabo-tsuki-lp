@@ -8,25 +8,8 @@
 
 &lt { tapping-term-ms = <200>; };
 
-/*
- * オートマウス（Layer 6）
- *  ZMK v0.3 標準の zip_temp_layer では excluded-positions が効かなかったため、
- *  追加モジュール zmk-input-processor-temp-layer-threshold に置き換え。
- *  - ボール操作後 10秒保持
- *  - 次のキーでは解除しない（それ以外のキーで Layer 0 に戻る）
- *    15=SCRL_UP 26=SCRL_LEFT 27=SCRL_DOWN 28=SCRL_RIGHT
- *    33=MB1 34=MB2 35=MB3 47=MB4 49=MB5
- */
-/ {
-    zip_aml: zip_aml {
-        compatible = "zmk,input-processor-temp-layer-threshold";
-        #input-processor-cells = <2>;
-        threshold = <0>;
-        excluded-positions = <15 26 27 28 33 34 35 47 49>;
-        require-prior-idle-ms = <0>;
-        reset-timeout-ms = <1000>;
-    };
-
+/｛
+ 
     macros {
         num_layer: num_layer {
             compatible = "zmk,behavior-macro";
@@ -300,11 +283,19 @@
     close_tab  { pattern = <GESTURE_UP>;    bindings = <&kp LC(W)>; };
 };
 
+/*
+ * オートマウス中、スクロール4方向とMB1～MB5ではLayer 6を解除しない。
+ * それ以外のキーを押すとLayer 0へ戻る。
+ */
+&zip_temp_layer {
+    excluded-positions = <2 11 12 13 16 17 18 28 30>;
+};
+
 &pointing_listener {
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_xy_scaler 4 5>,
-        <&zip_aml 6 10000>;
+        <&zip_temp_layer 6 10000>;
 
     gesture_layer_7  { layers = <7>;  input-processors = <&zip_mouse_gesture>; };
     gesture_layer_8  { layers = <8>;  input-processors = <&zip_mouse_gesture_18>; };
