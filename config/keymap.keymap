@@ -22,14 +22,14 @@
         z_mt: z_mod_tap { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "balanced"; tapping-term-ms = <200>; bindings = <&kp>, <&kp>; };
         num_lt: num_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&num_layer>, <&kp>; };
         zoom_ctrl_lt: zoom_ctrl_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; hold-while-undecided; hold-while-undecided-linger; bindings = <&zoom_ctrl>, <&kp>; };
-        u_gesture_lt: u_gesture_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <1>; flavor = "hold-preferred"; tapping-term-ms = <200>; hold-while-undecided; hold-while-undecided-linger; bindings = <&u_gesture_hold>, <&kp>; };
-        o_gesture_lt: o_gesture_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <1>; flavor = "hold-preferred"; tapping-term-ms = <200>; hold-while-undecided; hold-while-undecided-linger; bindings = <&o_gesture_hold>, <&kp>; };
+        u_gesture_lt: u_gesture_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; hold-while-undecided; hold-while-undecided-linger; bindings = <&u_gesture_hold>, <&kp>; };
+        o_gesture_lt: o_gesture_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; hold-while-undecided; hold-while-undecided-linger; bindings = <&o_gesture_hold>, <&kp>; };
     };
     combos { compatible = "zmk,combos"; tab_combo { bindings = <&kp TAB>; key-positions = <12 13>; timeout-ms = <100>; layers = <0>; }; };
     keymap { compatible = "zmk,keymap";
         layer_0 { bindings = <
 &none &none &none &none &none &none &none &none &none &none &none &none
-&none &kp Q &kp W &kp E &kp R &kp T &kp Y &u_gesture_lt U &kp I &o_gesture_lt O &lt 3 P &none
+&none &kp Q &kp W &kp E &kp R &kp T &kp Y &u_gesture_lt 0 U &kp I &o_gesture_lt 0 O &lt 3 P &none
 &none &kp A &kp S &kp D &kp F &kp G &none &none &kp H &lt 7 J &lt 8 K &lt 9 L &lt 0 MINUS &none
 &none &z_mt LEFT_SHIFT Z &kp X &kp C &kp V &kp B &kp TAB &kp ESCAPE &kp N &kp M &kp COMMA &kp DOT &mt RIGHT_SHIFT FSLH &none
 &none &zoom_ctrl_lt 0 LCTRL &kp LGUI &kp LEFT_ALT &lt 6 LS(CAPSLOCK) &num_lt 0 LC(CAPSLOCK) &lt 1 SPACE &lt 4 BACKSPACE &lt 5 ENTER &none &none &kp APOSTROPHE &kp SEMICOLON &none
