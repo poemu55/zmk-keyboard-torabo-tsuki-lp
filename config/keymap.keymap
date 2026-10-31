@@ -10,252 +10,118 @@
 
 / {
     macros {
-        num_layer: num_layer {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&macro_press &mo 2>, <&macro_pause_for_release>, <&macro_release &mo 2>;
-        };
-
-        zoom_ctrl: zoom_ctrl {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings = <&macro_press &mo 10 &kp LCTRL>, <&macro_pause_for_release>, <&macro_release &mo 10 &kp LCTRL>;
-        };
-
-        o_tab_hold: o_tab_hold {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings = <&macro_press &mo 7 &mouse_gesture>, <&macro_pause_for_release>, <&macro_release &mo 7 &mouse_gesture>;
-        };
-
-        i_desktop_hold: i_desktop_hold {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings = <&macro_press &mo 8 &mouse_gesture>, <&macro_pause_for_release>, <&macro_release &mo 8 &mouse_gesture>;
-        };
-
-        u_focus_hold: u_focus_hold {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings = <&macro_press &mo 9 &mouse_gesture>, <&macro_pause_for_release>, <&macro_release &mo 9 &mouse_gesture>;
-        };
-
-        minus_utility_hold: minus_utility_hold {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings = <&macro_press &mo 12 &mouse_gesture>, <&macro_pause_for_release>, <&macro_release &mo 12 &mouse_gesture>;
-        };
+        num_layer: num_layer { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <30>; tap-ms = <30>; bindings = <&macro_press &mo 2>, <&macro_pause_for_release>, <&macro_release &mo 2>; };
+        zoom_ctrl: zoom_ctrl { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <0>; tap-ms = <0>; bindings = <&macro_press &mo 10 &kp LCTRL>, <&macro_pause_for_release>, <&macro_release &mo 10 &kp LCTRL>; };
+        o_tab_hold: o_tab_hold { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <0>; tap-ms = <0>; bindings = <&macro_press &mo 7 &mouse_gesture>, <&macro_pause_for_release>, <&macro_release &mo 7 &mouse_gesture>; };
+        u_desktop_hold: u_desktop_hold { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <0>; tap-ms = <0>; bindings = <&macro_press &mo 8 &mouse_gesture>, <&macro_pause_for_release>, <&macro_release &mo 8 &mouse_gesture>; };
+        i_focus_hold: i_focus_hold { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <0>; tap-ms = <0>; bindings = <&macro_press &mo 9 &mouse_gesture>, <&macro_pause_for_release>, <&macro_release &mo 9 &mouse_gesture>; };
+        minus_utility_hold: minus_utility_hold { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <0>; tap-ms = <0>; bindings = <&macro_press &mo 12 &mouse_gesture>, <&macro_pause_for_release>, <&macro_release &mo 12 &mouse_gesture>; };
     };
-
     behaviors {
-        z_mt: z_mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        num_lt: num_lt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&num_layer>, <&kp>;
-        };
-
-        zoom_ctrl_lt: zoom_ctrl_lt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            hold-while-undecided;
-            hold-while-undecided-linger;
-            bindings = <&zoom_ctrl>, <&kp>;
-        };
-
-        o_tab_lt: o_tab_lt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            hold-while-undecided;
-            hold-while-undecided-linger;
-            bindings = <&o_tab_hold>, <&kp>;
-        };
-
-        i_desktop_lt: i_desktop_lt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            hold-while-undecided;
-            hold-while-undecided-linger;
-            bindings = <&i_desktop_hold>, <&kp>;
-        };
-
-        u_focus_lt: u_focus_lt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            hold-while-undecided;
-            hold-while-undecided-linger;
-            bindings = <&u_focus_hold>, <&kp>;
-        };
-
-        minus_utility_lt: minus_utility_lt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            hold-while-undecided;
-            hold-while-undecided-linger;
-            bindings = <&minus_utility_hold>, <&kp>;
-        };
+        z_mt: z_mod_tap { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "balanced"; tapping-term-ms = <200>; bindings = <&kp>, <&kp>; };
+        num_lt: num_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&num_layer>, <&kp>; };
+        zoom_ctrl_lt: zoom_ctrl_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; hold-while-undecided; hold-while-undecided-linger; bindings = <&zoom_ctrl>, <&kp>; };
+        o_tab_lt: o_tab_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; hold-while-undecided; hold-while-undecided-linger; bindings = <&o_tab_hold>, <&kp>; };
+        u_desktop_lt: u_desktop_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; hold-while-undecided; hold-while-undecided-linger; bindings = <&u_desktop_hold>, <&kp>; };
+        i_focus_lt: i_focus_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; hold-while-undecided; hold-while-undecided-linger; bindings = <&i_focus_hold>, <&kp>; };
+        minus_utility_lt: minus_utility_lt { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; hold-while-undecided; hold-while-undecided-linger; bindings = <&minus_utility_hold>, <&kp>; };
     };
-
     combos {
         compatible = "zmk,combos";
-        tab_combo {
-            bindings = <&kp TAB>;
-            key-positions = <27 28>;
-            timeout-ms = <250>;
-            layers = <0>;
-        };
+        tab_combo { bindings = <&kp TAB>; key-positions = <27 28>; timeout-ms = <250>; };
     };
-
-    keymap {
-        compatible = "zmk,keymap";
-        layer_0 {
-            bindings = <
+    keymap { compatible = "zmk,keymap";
+        layer_0 { bindings = <
 &none &none &none &none &none &none &none &none &none &none &none &none
-&none &kp Q &kp W &kp E &kp R &kp T &kp Y &u_focus_lt 0 U &i_desktop_lt 0 I &o_tab_lt 0 O &lt 3 P &none
+&none &kp Q &kp W &kp E &kp R &kp T &kp Y &u_desktop_lt 0 U &i_focus_lt 0 I &o_tab_lt 0 O &lt 3 P &none
 &none &kp A &kp S &kp D &kp F &kp G &none &none &kp H &kp J &kp K &kp L &minus_utility_lt 0 MINUS &none
 &none &z_mt LEFT_SHIFT Z &kp X &kp C &kp V &kp B &kp TAB &kp ESCAPE &kp N &kp M &kp COMMA &kp DOT &mt RIGHT_SHIFT FSLH &none
 &none &zoom_ctrl_lt 0 LCTRL &kp LGUI &kp LEFT_ALT &lt 6 LS(CAPSLOCK) &num_lt 0 LC(CAPSLOCK) &lt 1 SPACE &lt 4 BACKSPACE &lt 5 ENTER &none &none &kp APOSTROPHE &kp SEMICOLON &none
-            >;
-        };
-        layer_1 {
-            bindings = <
+>; };
+        layer_1 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &kp LC(NUMBER_1) &none &kp LG(UP_ARROW) &none &kp LC(LA(V)) &kp PAGE_UP &none &kp UP_ARROW &none &kp HOME &trans
 &trans &kp LC(PLUS) &kp LG(LEFT_ARROW) &kp LG(DOWN_ARROW) &kp LG(RIGHT) &kp LC(LA(TAB)) &trans &trans &kp PAGE_DOWN &kp LEFT_ARROW &kp DOWN_ARROW &kp RIGHT_ARROW &kp END &trans
 &trans &kp LC(MINUS) &none &none &kp LC(LA(T)) &kp LC(LA(P)) &kp LG(LS(S)) &trans &kp RC(LEFT_ARROW) &kp RC(UP_ARROW) &kp RC(DOWN_ARROW) &kp RC(RIGHT) &none &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
-        layer_2 {
-            bindings = <
+>; };
+        layer_2 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &none &kp F7 &kp F8 &kp F9 &kp F12 &kp COMMA &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_PLUS &trans
 &trans &none &kp F4 &kp F5 &kp F6 &kp F11 &trans &trans &kp KP_DOT &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS &trans
 &trans &none &kp F1 &kp F2 &kp F3 &kp F10 &kp CAPSLOCK &kp SQT &kp KP_N0 &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_MULTIPLY &trans
 &trans &none &none &trans &trans &trans &trans &kp DELETE &trans &trans &trans &kp EQUAL &kp KP_DIVIDE &trans
-            >;
-        };
-        layer_3 {
-            bindings = <
+>; };
+        layer_3 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &none &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &none &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
-        layer_4 {
-            bindings = <
+>; };
+        layer_4 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &none &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &bt BT_CLR &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &bt BT_CLR_ALL &trans
-            >;
-        };
-        layer_5 {
-            bindings = <
+>; };
+        layer_5 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp COLON &kp DOUBLE_QUOTES &kp KP_PLUS &trans &kp LEFT_BRACKET &kp RIGHT_BRACKET &trans &trans &trans
 &trans &kp PERCENT &kp CARET &kp AMPERSAND &kp KP_MULTIPLY &kp UNDERSCORE &trans &trans &trans &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp NON_US_BACKSLASH &trans &trans
 &trans &kp EXCLAMATION &kp AT_SIGN &kp HASH &kp DOLLAR &none &trans &trans &trans &kp LEFT_BRACE &kp RIGHT_BRACE &trans &trans &trans
 &trans &kp SEMICOLON &kp SQT &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
-        layer_6 {
-            bindings = <
+>; };
+        layer_6 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &msc SCRL_UP &trans &trans &trans &trans &trans &trans &lt 3 P &trans
 &trans &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans &trans &trans &trans &mkp MB1 &mkp MB2 &mkp MB3 &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &mkp MB4 &trans &mkp MB5 &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
-        layer_7 {
-            bindings = <
+>; };
+        layer_7 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
-        layer_8 {
-            bindings = <
+>; };
+        layer_8 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
-        layer_9 {
-            bindings = <
+>; };
+        layer_9 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
-        layer_10 {
-            bindings = <
+>; };
+        layer_10 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
-        layer_11 {
-            bindings = <
+>; };
+        layer_11 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
-        layer_12 {
-            bindings = <
+>; };
+        layer_12 { bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-            >;
-        };
+>; };
     };
 };
 
@@ -266,7 +132,7 @@
         #input-processor-cells = <0>;
         enable-eager-mode;
         suppress-movement;
-        stroke-size = <5>;
+        stroke-size = <40>;
         movement-threshold = <20>;
         idle-timeout-ms = <180>;
         gesture-cooldown-ms = <120>;
@@ -276,13 +142,13 @@
         prev_tab { pattern = <GESTURE_RIGHT>; bindings = <&kp LC(LS(TAB))>; };
     };
 
-    /* Layer 8: I - virtual desktops */
+    /* Layer 8: U - virtual desktops */
     zip_mouse_gesture_8: zip_mouse_gesture_8 {
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
         enable-eager-mode;
         suppress-movement;
-        stroke-size = <5>;
+        stroke-size = <40>;
         movement-threshold = <20>;
         idle-timeout-ms = <180>;
         gesture-cooldown-ms = <120>;
@@ -292,13 +158,13 @@
         vdesk_prev { pattern = <GESTURE_RIGHT>; bindings = <&kp LG(LC(LEFT))>; };
     };
 
-    /* Layer 9: U - focus/search */
+    /* Layer 9: I - focus/search */
     zip_mouse_gesture_9: zip_mouse_gesture_9 {
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
         enable-eager-mode;
         suppress-movement;
-        stroke-size = <5>;
+        stroke-size = <40>;
         movement-threshold = <20>;
         idle-timeout-ms = <180>;
         gesture-cooldown-ms = <120>;
@@ -314,7 +180,7 @@
         #input-processor-cells = <0>;
         enable-eager-mode;
         suppress-movement;
-        stroke-size = <5>;
+        stroke-size = <40>;
         movement-threshold = <20>;
         idle-timeout-ms = <180>;
         gesture-cooldown-ms = <120>;
@@ -325,30 +191,14 @@
     };
 };
 
-&zip_temp_layer {
-    excluded-positions = <2 11 12 13 16 17 18 28 30>;
-};
+&zip_temp_layer { excluded-positions = <2 11 12 13 16 17 18 28 30>; };
 
 &pointing_listener {
-    input-processors =
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-        <&zip_xy_scaler 4 5>,
-        <&zip_temp_layer 6 10000>;
-
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 4 5>, <&zip_temp_layer 6 10000>;
     gesture_layer_7 { layers = <7>; input-processors = <&zip_mouse_gesture_7>; };
     gesture_layer_8 { layers = <8>; input-processors = <&zip_mouse_gesture_8>; };
     gesture_layer_9 { layers = <9>; input-processors = <&zip_mouse_gesture_9>; };
     gesture_layer_12 { layers = <12>; input-processors = <&zip_mouse_gesture_12>; };
-
-    scroller {
-        layers = <3>;
-        input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>;
-        process-next;
-    };
-
-    zoom_scroller {
-        layers = <10>;
-        input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 4>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>;
-        process-next;
-    };
+    scroller { layers = <3>; input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>; process-next; };
+    zoom_scroller { layers = <10>; input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 4>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>; process-next; };
 };
