@@ -160,10 +160,10 @@
         movement-threshold = <6>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
-        create_tab { pattern = <GESTURE_UP>; bindings = <&kp LC(T)>; };
-        next_tab { pattern = <GESTURE_RIGHT>; bindings = <&kp LC(TAB)>; };
-        close_tab { pattern = <GESTURE_DOWN>; bindings = <&kp LC(W)>; };
-        prev_tab { pattern = <GESTURE_LEFT>; bindings = <&kp LC(LS(TAB))>; };
+        create_tab { pattern = <GESTURE_DOWN>; bindings = <&kp LC(T)>; };
+        next_tab { pattern = <GESTURE_LEFT>; bindings = <&kp LC(TAB)>; };
+        close_tab { pattern = <GESTURE_UP>; bindings = <&kp LC(W)>; };
+        prev_tab { pattern = <GESTURE_RIGHT>; bindings = <&kp LC(LS(TAB))>; };
     };
 
     /* Layer 8: U - virtual desktops */
@@ -176,10 +176,10 @@
         movement-threshold = <6>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
-        task_view { pattern = <GESTURE_UP>; bindings = <&kp LG(TAB)>; };
-        vdesk_next { pattern = <GESTURE_RIGHT>; bindings = <&kp LG(LC(RIGHT))>; };
-        vdesk_prev { pattern = <GESTURE_LEFT>; bindings = <&kp LG(LC(LEFT))>; };
-        restore_tab { pattern = <GESTURE_DOWN>; bindings = <&kp LC(LS(T))>; };
+        task_view { pattern = <GESTURE_DOWN>; bindings = <&kp LG(TAB)>; };
+        vdesk_next { pattern = <GESTURE_LEFT>; bindings = <&kp LG(LC(RIGHT))>; };
+        vdesk_prev { pattern = <GESTURE_RIGHT>; bindings = <&kp LG(LC(LEFT))>; };
+        vdesk_send_next { pattern = <GESTURE_UP>; bindings = <&kp LG(LC(LS(RIGHT)))>; };
     };
 
     /* Layer 9: I - focus/search */
@@ -192,10 +192,10 @@
         movement-threshold = <6>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
-        focus_url { pattern = <GESTURE_UP>; bindings = <&kp LC(L)>; };
-        taskbar_next { pattern = <GESTURE_RIGHT>; bindings = <&kp LG(T)>; };
-        windows_search { pattern = <GESTURE_DOWN>; bindings = <&kp LG(S)>; };
-        arrow_left { pattern = <GESTURE_LEFT>; bindings = <&kp LEFT>; };
+        focus_url { pattern = <GESTURE_DOWN>; bindings = <&kp LC(L)>; };
+        taskbar_next { pattern = <GESTURE_LEFT>; bindings = <&kp LG(T)>; };
+        windows_search { pattern = <GESTURE_UP>; bindings = <&kp LG(S)>; };
+        arrow_left { pattern = <GESTURE_RIGHT>; bindings = <&kp LEFT>; };
     };
 
     /* Layer 12: Minus - utility */
@@ -208,10 +208,10 @@
         movement-threshold = <6>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
-        print { pattern = <GESTURE_UP>; bindings = <&kp LC(P)>; };
-        screenshot { pattern = <GESTURE_RIGHT>; bindings = <&kp LG(LS(S))>; };
-        show_desktop { pattern = <GESTURE_DOWN>; bindings = <&kp LG(D)>; };
-        copilot { pattern = <GESTURE_LEFT>; bindings = <&kp LG(NUMBER_1)>; };
+        print { pattern = <GESTURE_DOWN>; bindings = <&kp LC(P)>; };
+        screenshot { pattern = <GESTURE_LEFT>; bindings = <&kp LG(LS(S))>; };
+        show_desktop { pattern = <GESTURE_UP>; bindings = <&kp LG(D)>; };
+        copilot { pattern = <GESTURE_RIGHT>; bindings = <&kp LG(NUMBER_1)>; };
     };
 };
 
