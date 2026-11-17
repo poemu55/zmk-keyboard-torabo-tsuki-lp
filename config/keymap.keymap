@@ -185,19 +185,19 @@
 
         tab_combo {
             bindings = <&kp TAB>;
-            key-positions = <28 27>;
+            key-positions = <12 13>;
             timeout-ms = <450>;
         };
 
         tab_combo_xc {
             bindings = <&kp TAB>;
-            key-positions = <40 41>;
+            key-positions = <21 22>;
             timeout-ms = <400>;
         };
 
         tab_combo_jk {
             bindings = <&kp TAB>;
-            key-positions = <34 33>;
+            key-positions = <16 17>;
             timeout-ms = <400>;
         };
     };
