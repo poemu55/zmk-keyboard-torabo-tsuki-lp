@@ -58,6 +58,11 @@
             key-positions = <40 41>;
             timeout-ms = <400>;
         };
+        tab_combo_jk {
+            bindings = <&kp TAB>;
+            key-positions = <34 33>;
+            timeout-ms = <400>;
+        };
     };
     keymap { compatible = "zmk,keymap";
         layer_0 { bindings = <
@@ -160,7 +165,7 @@
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
         suppress-movement;
-        stroke-size = <12>;
+        stroke-size = <10>;
         movement-threshold = <7>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
@@ -175,7 +180,7 @@
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
         suppress-movement;
-        stroke-size = <12>;
+        stroke-size = <10>;
         movement-threshold = <7>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
@@ -190,7 +195,7 @@
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
         suppress-movement;
-        stroke-size = <12>;
+        stroke-size = <10>;
         movement-threshold = <7>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
@@ -205,7 +210,7 @@
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
         suppress-movement;
-        stroke-size = <12>;
+        stroke-size = <10>;
         movement-threshold = <7>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
