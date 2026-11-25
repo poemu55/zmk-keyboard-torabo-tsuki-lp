@@ -340,8 +340,8 @@
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
         suppress-movement;
-        stroke-size = <10>;
-        movement-threshold = <7>;
+        stroke-size = <16>;
+        movement-threshold = <10>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
 
@@ -372,8 +372,8 @@
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
         suppress-movement;
-        stroke-size = <10>;
-        movement-threshold = <7>;
+        stroke-size = <16>;
+        movement-threshold = <10>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
 
@@ -404,8 +404,8 @@
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
         suppress-movement;
-        stroke-size = <10>;
-        movement-threshold = <7>;
+        stroke-size = <16>;
+        movement-threshold = <10>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
 
@@ -436,8 +436,8 @@
         compatible = "zmk,input-processor-mouse-gesture";
         #input-processor-cells = <0>;
         suppress-movement;
-        stroke-size = <10>;
-        movement-threshold = <7>;
+        stroke-size = <16>;
+        movement-threshold = <10>;
         idle-timeout-ms = <100>;
         gesture-cooldown-ms = <120>;
 
