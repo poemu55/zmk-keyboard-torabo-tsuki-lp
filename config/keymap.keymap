@@ -1,4 +1,3 @@
-
 #include <input/processors.dtsi>
 #include <mouse-gesture.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
@@ -179,6 +178,13 @@
             hold-while-undecided-linger;
             bindings = <&minus_utility_hold>, <&kp>;
         };
+
+        q_td: q_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp Q>, <&kp ESCAPE>;
+        };
     };
 
     combos {
@@ -198,7 +204,7 @@
         layer_0 {
             bindings = <
 &none  &none                  &none     &none         &none        &none                                                     &none        &none              &none            &none           &none                      &none
-&none  &kp Q                  &kp W     &kp E         &kp R        &kp T                                                     &kp Y        &u_desktop_lt 0 U  &i_focus_lt 0 I  &o_tab_lt 0 O   &lt 3 P                    &none
+&none  &q_td                   &kp W     &kp E         &kp R        &kp T                                                     &kp Y        &u_desktop_lt 0 U  &i_focus_lt 0 I  &o_tab_lt 0 O   &lt 3 P                    &none
 &none  &kp A                  &kp S     &kp D         &kp F        &kp G            &none                   &none            &kp H        &kp J              &kp K            &kp L           &minus_utility_lt 0 MINUS  &none
 &none  &z_mt LEFT_SHIFT Z     &kp X     &kp C         &kp V        &kp B            &kp TAB                 &kp ESCAPE       &kp N        &kp M              &kp COMMA        &kp DOT         &mt RIGHT_SHIFT FSLH       &none
 &none  &zoom_ctrl_lt 0 LCTRL  &kp LGUI  &kp LEFT_ALT  &lt 6 LANG2  &num_lt 0 LANG1  &layer1_alt_lt 0 SPACE  &lt 4 BACKSPACE  &lt 5 ENTER  &none              &none            &kp APOSTROPHE  &kp SEMICOLON              &none
@@ -299,7 +305,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans   &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
