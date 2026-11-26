@@ -463,13 +463,15 @@
     };
 };
 
-&zip_temp_layer { excluded-positions = <2 11 12 13 16 17 18 28 30>; };
+&zip_temp_layer {
+    excluded-positions = <15 26 27 28 33 34 35 47 49>;
+};
 
 &pointing_listener {
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_xy_scaler 4 5>,
-        <&zip_temp_layer 6 3000>;
+        <&zip_temp_layer 6 10000>;
 
     gesture_layer_7 {
         layers = <7>;
