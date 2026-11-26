@@ -464,7 +464,6 @@
 };
 
 &zip_temp_layer {
-    require-prior-idle-ms = <150>;
     excluded-positions = <15 26 27 28 33 34 35 47 49>;
 };
 
