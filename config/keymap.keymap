@@ -463,9 +463,7 @@
     };
 };
 
-&zip_temp_layer {
-    excluded-positions = <15 26 27 28 33 34 35 47 49>;
-};
+&zip_temp_layer { excluded-positions = <2 11 12 28 30>; };
 
 &pointing_listener {
     input-processors =
